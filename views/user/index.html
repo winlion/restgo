@@ -1,0 +1,244 @@
+{{ define "user/index.html" }}
+<!DOCTYPE HTML>
+<html>
+<head>
+	{{template "public/head.html"}}
+    <title>teamfish应用</title>
+    <style>
+   .aui-col-xs-3{
+    	text-align:center
+    }
+    .page{
+    	display:none;
+    }
+    .page.active{
+    	display:block;
+    }
+    
+     .header {
+            padding: 2.5rem 0.5rem 2rem 0.5rem;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="page active" id="panel-project">
+    <header class="aui-bar aui-bar-nav aui-margin-b-10">
+    
+    <div class="aui-title">
+      	  项目管理
+    </div>
+	<a class="aui-pull-right aui-btn">
+        		<span class="aui-iconfont aui-icon-plus"></span>
+    </a>
+    
+</header>
+ 	<div class="aui-tab" id="tab-prj">
+    <div class="aui-tab-item aui-active">我参与的</div>
+    <div class="aui-tab-item">进行中</div>
+    <div class="aui-tab-item">已完成</div>
+    </div>
+    
+    <section class="aui-content">
+    
+     <ul class="aui-list aui-media-list">
+            <li class="aui-list-item aui-list-item-arrow">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title">数织时尚</div>
+                            <div class="aui-list-item-right">详细设计</div>
+                        </div>
+                        <div class="aui-list-item-text aui-ellipsis-2">
+                            	专业的数织管理系统
+                        </div>
+                        <div class="aui-row aui-row-padded data-item">
+                        <div class="aui-col-xs-3">
+                           <p>58</p>
+                           	需求总数
+                        </div>
+                        <div class="aui-col-xs-3">
+                        	<p>13</p>
+                           	   需求变动
+                        </div>
+                        <div class="aui-col-xs-3">
+                        <p>13</p>
+                           	新增需求
+                        </div>
+                        
+                        <div class="aui-col-xs-3">
+                           <p>58(32%)</p>
+                           	已完成数
+                        </div>
+                        
+                        <div class="aui-col-xs-3">
+                           <p>58</p>
+                           	开发中
+                        </div>
+                        
+                        <div class="aui-col-xs-3">
+                           <p>58</p>
+                           	未启动
+                        </div>
+                        
+                        <div class="aui-col-xs-3">
+                        	<p>58</p>
+                           	     计划工时
+                        </div>
+                        <div class="aui-col-xs-3">
+                        	<p>25</p>
+                           	 已用工时
+                        </div>
+                        
+                        <div class="aui-col-xs-3">
+                        	<p>150</p>
+                           	bug总数
+                        </div>
+                        
+                        <div class="aui-col-xs-3">
+                        	<p>07-29</p>
+                           	关键节点
+                        </div>
+                        
+                        <div class="aui-col-xs-3">
+                        	<p>3</p>
+                           	团队人数
+                        </div>
+                       
+                        <div class="aui-col-xs-3">
+                        	<p>09-08</p>
+                           	完成时间
+                        </div>
+                       
+                    </div>
+                    <!--
+                    <div class="aui-row aui-row-padded">
+                    	胡文林、李小刚、牛百万
+                    </div>
+                    -->
+                    </div>
+                </div>
+            </li>
+            
+            
+            
+           
+        </ul>
+	</section>
+    </div>
+    <div class="page" id="panel-todo">
+    	<header class="aui-bar aui-bar-nav">
+    		
+    	<div class="aui-title">待办</div>
+    		<a class="aui-pull-right aui-btn">
+        		<span class="aui-iconfont aui-icon-refresh"></span>
+    		</a>
+		</header>
+    <section class="aui-content">
+    
+    <div class="aui-tab" id="tabtodo">
+    <div class="aui-tab-item aui-active">待办</div>
+    <div class="aui-tab-item">已办</div>
+    <div class="aui-tab-item">广场</div>
+    <div class="aui-tab-item">排行</div>
+    <div class="aui-tab-item">发布</div>
+    </div>
+
+    <ul class="aui-list aui-list-in">
+    		<li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <input type="text" placeholder="在这里快速发起新任务" />
+                </div>
+            </li>
+    	   
+   </ul>
+   
+   <div class="aui-card-list">
+            
+            <div class="aui-card-list-content-padded aui-border-b aui-border-t">
+                <div class="aui-row aui-row-padded">
+                    	<div class="aui-list-item-text">
+                            <div class="aui-list-item-title">任务名称</div>
+                            <div class="aui-list-item-right">详细备注</div>
+                        </div>	
+                </div>
+            </div>
+            <div class="aui-card-list-footer">
+                <div><i class="aui-iconfont aui-icon-correct">完成</i></div>
+                <div><i class="aui-iconfont aui-icon-forward">转发</i></div>
+                <div><i class="aui-iconfont aui-icon-edit">修改</i></div>
+                <div><i class="aui-iconfont aui-icon-trash">删除</i></div>
+                <div><i class="aui-iconfont aui-icon-display">关注</i></div>
+            </div>
+        </div>
+        
+    </section>     
+    
+    </div>
+    <div class="page" id="panel-wode">
+    <header class="aui-bar aui-bar-nav aui-text-left header" id="header">
+        <h1>
+            <a class="aui-btn aui-pull-right" tapmode onclick="openClub()">
+                <i class="aui-iconfont aui-icon-gear"></i>
+            </a>
+           	胡大力
+        </h1>
+        
+    </header>
+    <div class="aui-content aui-margin-b-15">
+    <ul class="aui-list aui-list-in">
+        	
+          
+            
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">消息</div>
+                    <div class="aui-list-item-right">
+                        <div class="aui-badge" style="position:relative;top:0; left:0">88</div>
+                    </div>
+                </div>
+            </li>
+            
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">报表</div>
+                    <div class="aui-list-item-right">
+                        
+                    </div>
+                </div>
+            </li>
+            
+              <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">设置</div>
+                    <div class="aui-list-item-right">
+                        
+                    </div>
+                </div>
+            </li>
+          
+        </ul>
+        </div>
+        
+    </div>
+    <footer class="aui-bar aui-bar-tab" id="footer">
+        <div class="aui-bar-tab-item aui-active" tapmode>
+            <i class="aui-iconfont aui-icon-star"></i>
+            <div class="aui-bar-tab-label">项目</div>
+        </div>
+        <div class="aui-bar-tab-item" tapmode>
+            <i class="aui-iconfont aui-icon-calendar"></i>
+            <div class="aui-bar-tab-label">待办</div>
+        </div>
+        <div class="aui-bar-tab-item" tapmode>
+            <div class="aui-dot"></div>
+            <i class="aui-iconfont aui-icon-my"></i>
+            <div class="aui-bar-tab-label">我的</div>
+        </div>
+    </footer>
+</body>
+<script type="text/javascript" src="/assets/plugins/auiv21/script/aui-tab.js" ></script>
+<script type="text/javascript" src="/assets/js/user-main.js" ></script>
+{{template "public/foot.html"}}
+</html>
+{{ end}}
