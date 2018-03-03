@@ -1,0 +1,17 @@
+{{define "panel/index.html"}}
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Error Pages</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <#include "inc.ftl" />
+    <link href="${plugins}/bootstrap/css/bootstrap.min.css?version=${version}" rel="stylesheet" type="text/css" />
+    
+</head>
+<body>
+	<div>
+    <div class="alert alert-danger" role="alert">${error}</div>
+	</div>
+</body>
+</html>
+{{end}}

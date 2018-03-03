@@ -1,0 +1,47 @@
+{{define "public/main-sidebar.html"}}
+<!-- Bootstrap 3.3.5 -->
+      <aside class="main-sidebar">
+
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+
+
+          <!-- Sidebar Menu -->
+          <ul class="sidebar-menu">
+            <li class="header">菜单</li>
+            <li class="treeview active">
+              <a href="/page/user/list"><i class="fa fa-link"></i> <span>用户管理</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="{{pageurl "user/list"}}">全部用户</a></li>
+				<li><a href="{{pageurl "user/fankui"}}">反馈建议</a></li>
+				<li><a href="{{pageurl "user/notify"}}">通知发布</a></li>
+              </ul>
+            </li>
+            <li class="treeview active">
+              <a href="{{pageurl "task/list"}}"><i class="fa fa-link"></i> <span>任务和分类</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="{{pageurl "task/list"}}">全部任务</a></li>
+                  <li><a href="{{pageurl "task/schedule"}}">定时任务</a></li>
+				<li><a href="{{pageurl "task/channel"}}">全部分类</a></li>
+              </ul>
+            </li>
+            <li class="treeview active">
+              <a href="{{pageurl "report/task"}}"><i class="fa fa-link"></i> <span>统计报表</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="{{pageurl "report/task"}}">任务统计</a></li>
+				<li><a href="{{pageurl "report/task"}}">用户统计</a></li>
+              </ul>
+            </li>
+              <li class="treeview active">
+                  <a href="{{pageurl "setting/role"}}"><i class="fa fa-link"></i> <span>系统设置</span> <i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                      <li><a href="{{pageurl "setting/role"}}">角色权限</a></li>
+                      <li><a href="{{pageurl "setting/site"}}">网站设置</a></li>
+                  </ul>
+              </li>
+          </ul><!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+
+{{end}}

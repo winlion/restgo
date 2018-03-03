@@ -1,0 +1,173 @@
+{{define "user/fankui.html"}}
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html>
+  <head>
+		{{template "public/head.html"}}
+        <script src="/public/userinfo.shtml"></script>
+  </head>
+  
+  <body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+
+		{{template "public/main-header.html"}}
+      <!-- Left side column. contains the logo and sidebar -->
+				
+		{{template "public/main-sidebar.html"}}
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Page Header
+            <small>Optional description</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+            <li class="active">Here</li>
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+
+          <!-- Your Page Content Here -->
+
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+		
+     	{{template "public/footer.html"}}
+    </div><!-- ./wrapper -->
+
+    <!-- REQUIRED JS SCRIPTS -->
+		{{template "public/foot.html"}}
+  </body>
+</html>
+{{end}}
+
+模板定义
+
+hello world
+
+t := template.Must(template.New("hello").Parse("hello world"))
+t.Execute(os.Stdout, nil)
+
+// output:
+// hello
+此处，template.Must(*template.Template, error )会在Parse返回err不为nil时，调用panic。Must的引入，说的不好听点，就是为了中和Golang将error置于函数返回值这种做法带来的缺点。
+
+有了Must，我们可以将两句inline在一起。
+
+template.Must(template.New("hello").Parse("hello world")).Execute(os.Stdout, nil)
+从文件初始化模板
+
+t := template.Must(template.ParseFiles("hello.txt"))
+t.Execute(os.Stdout, nil)
+
+// hello.txt:
+// hello world
+
+// output:
+// hello world
+通过文件名字，指定对应的模板
+
+t := template.New("hello")
+template.Must(t.ParseFiles("hello.txt"))
+template.Must(t.ParseFiles("world.txt"))
+t.ExecuteTemplate(os.Stdout, "world.txt", nil)
+
+// world.txt:
+// another file
+
+// output:
+// another file
+所以，一个template实例，其实是一个模板的集合，我们可以为每个模板命名。
+
+数据驱动
+
+hello world
+
+s := "LiLei"
+t := template.Must(template.New("test").Parse("Watch out, {{.}}!"))
+t.Execute(os.Stdout, s)
+
+// output:
+// Watch out, LiLei!
+也可以传点别的
+
+s := &student{Name: "Han Meimei", Age: 30}
+t := template.Must(template.New("test").Parse("{{.Name}} looks like more than {{.Age}} years old!"))
+t.Execute(os.Stdout, s)
+
+// output:
+// Han Meimei looks like more than 30 years old!
+Map
+
+marrage_info := map[string]bool{
+"HanMeimei": true,
+"LiLei": false,
+}
+t := template.Must(template.New("test").Parse("Married: Han Meimei:{{.HanMeimei}}; Li Lei:{{.LiLei}}"))
+t.Execute(os.Stdout, marrage_info )
+
+// output:
+// Married: Han Meimei:true; Li Lei:false
+在template中key有空格，得用到index。
+
+info := map[string]bool{
+"Han Meimei": true,
+"LiLei": false,
+}
+t := template.Must(template.New("test").Parse(`Married: Han Meimei:{{index . "Han Meimei"}}; Li Lei:{{.LiLei}}`))
+t.Execute(os.Stdout, info)
+
+// output:
+// Married: Han Meimei:true; Li Lei:false
+array/slice
+
+infos := []string{"Han Meimei", "Lilei"}
+t := template.Must(template.New("test").Parse("Students List:" +
+"{{range .}}" +
+"\n{{.}}," +
+"{{end}}"))
+t.Execute(os.Stdout, infos)
+
+// output:
+// Students List:
+// Han Meimei,
+// Lilei,
+自定义变量
+
+infos := []string{"Han Meimei", "Lilei"}
+t := template.Must(template.New("test").Parse("Students List:" +
+"{{range $index, $_ := .}}" +
+"\n{{$index}}. {{.}}," +
+"{{end}}"))
+t.Execute(os.Stdout, infos)
+
+// output:
+// Students List:
+// 0. Han Meimei,
+// 1. Lilei,
+条件查询
+
+s := "LiLei"
+t := template.Must(template.New("test").Parse(`{{if eq . "LiLei"}}Man{{else if eq . "Han Meimei"}}Women{{end}}`))
+t.Execute(os.Stdout, s)
+
+�// output:
+// Man
+转义
+
+在"html/template"中，如下两端代码是等价的。
+
+<a href="/search?q={{.}}">{{.}}</a>
+<a href="/search?q={{. | urlquery}}">{{. | html}}</a>
+
+作者：WoodsWalker
+链接：https://www.jianshu.com/p/bee02c18b221
+來源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
