@@ -9,12 +9,12 @@ https://github.com/winlion/restgo-admin/
 ## 2.1、使用如下指令克隆
 <code>
 cd $GOPATH/src   
-git clone https://github.com/winlion/restgo-admin.git  
+git clone https://github.com/winlion/restgo.git  
 </code>  
-你将得到restgo-admin 目录  
+你将得到restgo 目录  
 进入目录  
 <code>
-cd restgo-admin  
+cd restgo  
 </code>    
 
 ## 2.2、数据库
