@@ -1,7 +1,7 @@
 rd /s/q release
 md release
 go build
-COPY restgo.exe release\restgo.exe
+COPY *.exe release\
 COPY favicon.ico release\favicon.ico
 XCOPY config\*.* release\config\  /s /e 
 XCOPY mnt\*.* release\mnt\  /s /e 
